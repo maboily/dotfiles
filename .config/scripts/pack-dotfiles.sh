@@ -19,8 +19,7 @@ COPY_DIRS=(
     ".local/bin"
 )
 COPY_FILES=(
-    # Profile
-    ~/.profile
+    ".profile"
 )
 COPY_TO_DIR=~/.dotfiles-keep
 
@@ -29,6 +28,9 @@ mkdir -p ${COPY_TO_DIR}
 
 # Copy all files from COPY_DIRS to COPY_TO_DIR
 for d in ${COPY_DIRS[@]}; do
-    echo ${d};
     cp -t ${COPY_TO_DIR} --parents -r ${d};
+done
+
+for f in ${COPY_FILES[@]}; do
+    cp -t ${COPY_TO_DIR} --parents ${f};
 done
