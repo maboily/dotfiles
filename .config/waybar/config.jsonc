@@ -1,0 +1,103 @@
+{
+  "position": "bottom",
+  "layer": "top",
+  "height": 16,
+  "margin-top": 0,
+  "margin-bottom": 0,
+  "margin-left": 0,
+  "margin-right": 0,
+  "modules-left": [
+    "battery",
+    "cpu",
+    "disk",
+    "memory",
+    "network",
+  ],
+  "modules-center": ["pulseaudio", "sway/workspaces", "sway/mode"],
+  "modules-right": ["tray", "clock"],
+  "clock": {
+    "format": " {:%H:%M}",
+    "tooltip": "true",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": " {:%d/%m}",
+  },
+
+  "sway/workspaces": {
+    "active-only": false,
+    "all-outputs": true,
+    "disable-scroll": false,
+    "on-scroll-up": "hyprctl dispatch workspace -1",
+    "on-scroll-down": "hyprctl dispatch workspace +1",
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "urgent": "",
+      "focused": "",
+      "default": " ",
+      "sort-by-number": true,
+    },
+  },
+
+  "sway/mode": {
+    "format": "{}"
+  },
+
+  "memory": {
+    "format": "<b>RAM</b> {}%",
+    "format-alt": "<b>RAM</b> {used}/{total} GiB",
+    "interval": 5,
+  },
+
+  "battery": {
+      "format": "<b>Bat</b> {}%",
+      "format-alt": "<b>PwrDraw</b> {power}W"
+  },
+
+  "cpu": {
+    "format": "<b>CPU</b> {usage}%",
+    "format-alt": "<b>CPU</b> {avg_frequency} GHz",
+    "interval": 5,
+  },
+
+  "disk": {
+    "format": "<b>Disk</b> {}%",
+    "format-alt": "<b>Disk</b> {used}/{total} GiB",
+    "interval": 5,
+    "path": "/",
+  },
+
+  "network": {
+    "format-wifi": "<b>Net</b> {ifname} - WiFi",
+    "format-ethernet": "<b>Net</b> {ifname} - Eth",
+    "format-linked": "<b>Net</b> {ifname} - (No IP)",
+    "format-disconnected": "<b>! No Network !</b>",
+    "format-alt": "<b>Net</b> {ipaddr}/{cidr}",
+    "tooltip-format": "{essid}",
+    "on-click-right": "nm-connection-editor",
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 5,
+  },
+
+  "pulseaudio": {
+    "format": "<b>{icon} Vol</b> {volume}%",
+    "format-bluetooth": "<b>Bluetooth Vol</b> {volume}",
+    "format-muted": "<b>{icon} MUTED</b>",
+    "format-icons": {
+      "headphone": "Headphone",
+      "headset": "Headset",
+      "speaker": "Speaker",
+      "hdmi": "HDMI"
+    },
+    "on-click": "bash ~/.config/sway/scripts/volume mute",
+    "on-scroll-up": "bash ~/.config/sway/scripts/volume up",
+    "on-scroll-down": "bash ~/.config/sway/scripts/volume down",
+    "scroll-step": 5,
+    "on-click-right": "pavucontrol",
+  },
+  "custom/microphone": {
+    "exec": ""
+  }
+}

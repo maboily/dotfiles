@@ -1,0 +1,34 @@
+set $builtin_display eDP-1
+set $external_display DP-3
+set $term alacritty
+set $menu rofi -show run
+
+# Keybindings
+include ~/.config/sway/keys.conf
+
+# Theme
+include ~/.config/sway/theme.conf
+
+# Outputs
+output $external_display resolution 3440x1440 position 0,0
+output $builtin_display resolution 2560x1600 position 3440,0
+
+# Wallpaper
+output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+
+# Status Bar
+bar {
+    swaybar_command waybar
+}
+
+# Custom app settings
+for_window [title="Volume Control"] floating enable
+for_window [title="Network Connections"] floating enable
+
+# Screen-sharing
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+# Flameshot (screen-capture)
+for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
+
+include /etc/sway/config.d/*

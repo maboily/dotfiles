@@ -1,0 +1,89 @@
+@import "macchiato.css";
+
+* {
+  border: none;
+  border-radius: 0px;
+  font-family: sans-serif, FontAwesome;
+  font-size: 16px;
+  font-style: normal;
+  min-height: 24px;
+}
+
+window#waybar {
+  background: transparent;
+  color: @text;
+}
+
+#workspaces button {
+  padding: 0px 5px;
+  border-radius: 16px;
+  color: @green;
+}
+
+#workspaces button.active {
+  color: @text;
+  background-color: @base;
+  border-radius: 24px;
+}
+
+#mode,
+#tray,
+#custom-launcher,
+#custom-randwall,
+#clock,
+#workspaces,
+#custom-playerctl,
+#pulseaudio {
+  color: @text;
+  border-radius: 24px;
+  margin: 5px;
+  padding: 0 13px;
+  background: @base;
+}
+
+#mode {
+  color: @red;
+}
+
+#clock {
+  font-weight: bold;
+}
+
+#pulseaudio.muted {
+  color: @red;
+}
+
+/* 
+ * Hardware section (left) 
+ */
+
+.modules-left {
+  border-radius: 24px;
+  background: @base;
+  margin: 4px;
+  padding: 2px 4px;
+}
+
+.modules-left * {
+  padding: 2px 6px;
+}
+
+#battery {
+  color: @red;
+}
+
+#cpu {
+  color: @yellow;
+}
+
+#disk {
+  color: @green;
+}
+
+#memory {
+  color: @blue;
+}
+
+#network {
+  color: @mauve;
+}

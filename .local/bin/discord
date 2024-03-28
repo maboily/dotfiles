@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -e -u -o
+
+flatpak run com.discordapp.Discord
